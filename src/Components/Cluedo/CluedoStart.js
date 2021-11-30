@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useSettings } from "../context/useSettings";
+import React from "react";
+import {useSettings} from "../context/useSettings";
 import Button from "../Button";
 
 /*
