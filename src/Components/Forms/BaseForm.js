@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {call} from "../../Helpers/api";
 import Button from "../Button";
 
-export const BaseForm = () => {
+export const BaseForm = ({onSubmitForm}) => {
     const [rooms, setRooms] = useState([]);
     const [weapons, setWeapons] = useState([]);
     const [suspects, setSuspects] = useState([]);
@@ -25,7 +25,8 @@ export const BaseForm = () => {
     }, [])
 
     return (
-        <form name="suggestForm" id="suggestForm">
+        <form name="suggestForm" id="suggestForm" onSubmit={onSubmitForm}>
+        <h3>Kamers</h3>
         <select name="room" id="room">
           {rooms.map(room => {
             return (<option value={room.id} key={room.id}>{room.title}</option>)
