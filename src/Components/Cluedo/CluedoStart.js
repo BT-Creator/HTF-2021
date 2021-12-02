@@ -1,7 +1,8 @@
 import React from "react";
 import {useSettings} from "../context/useSettings";
-import Button from "../Button";
 import {call} from "../../Helpers/api";
+import Button from "../Button";
+import CluedoBrute from "./CluedoBrute";
 
 /*
    CLUEDO START
@@ -10,19 +11,21 @@ import {call} from "../../Helpers/api";
    Geef de nieuwe gameKey mee aan de onStart functie (zie props).
 */
 
-const CluedoStart = ({ onStart }) => {
-  const { settings } = useSettings();
+const CluedoStart = ({onStart}) => {
+    const {settings} = useSettings();
 
-  const startGame = () => {
-      call(process.env.REACT_APP_URL_NEW).then(response => onStart(response.key));
-  };
+    const startGame = () => {
+        call(process.env.REACT_APP_URL_NEW).then(response => onStart(response.key));
+    };
 
-  return (
-    <div className={"file full"}>
-      <h2>Cluedo</h2>
-      <Button onClick={startGame} value="Start een nieuw spel" />
-    </div>
-  );
+    return (
+        <div className={"file full"}>
+            <h2>Cluedo</h2>
+            <Button onClick={startGame} value="Start een nieuw spel"/>
+            <CluedoBrute/>
+        </div>
+
+    );
 };
 
 export default CluedoStart;
