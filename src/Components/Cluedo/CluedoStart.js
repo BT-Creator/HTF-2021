@@ -1,6 +1,7 @@
 import React from "react";
 import {useSettings} from "../context/useSettings";
 import Button from "../Button";
+import {call} from "../../Helpers/api";
 
 /*
    CLUEDO START
@@ -13,6 +14,7 @@ const CluedoStart = ({ onStart }) => {
   const { settings } = useSettings();
 
   const startGame = () => {
+      call(process.env.REACT_APP_URL_NEW).then(response => onStart(response.key));
   };
 
   return (
