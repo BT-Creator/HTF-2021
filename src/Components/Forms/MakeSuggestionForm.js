@@ -1,8 +1,5 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import { useSettings } from "../context/useSettings";
-import {call} from "../../Helpers/api";
-import Button from "../Button";
-import { BaseForm } from "./BaseForm";
 
 /*
    SUGGESTIE FORMULIER
@@ -23,7 +20,6 @@ export const MakeSuggestionForm = ({ gameKey, selectedRoom }) => {
       <h2>Maak een suggestie</h2>
       <p>Maak een formulier om een suggestie te maken.</p>
       <h3>Kamers</h3>
-      <BaseForm OnSubmit={HandleSubmit} ></BaseForm>
     </div>
   );
 };
