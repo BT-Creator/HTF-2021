@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import Log from "./Log";
 import Button from "../Button";
 import { Mansion } from "./Mansion";
@@ -15,7 +15,6 @@ import { MakeArrestForm } from "../Forms/MakeArrestForm";
 const CluedoActive = ({ gameKey, onEndGame, onArrest }) => {
   const [log, setLog] = useState([]);
   const [room, setRoom] = useState(null);
-
   const [isArrest, setIsArrest] = useState(false);
 
   return (
