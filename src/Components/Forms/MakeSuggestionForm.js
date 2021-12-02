@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { useSettings } from "../context/useSettings";
 import {call} from "../../Helpers/api";
 import Button from "../Button";
+import Log from "../Cluedo/Log";
 
 /*
    SUGGESTIE FORMULIER
@@ -31,7 +32,18 @@ export const MakeSuggestionForm = ({ gameKey, selectedRoom, onSuggestion }) => {
     }
     call(`${process.env.REACT_APP_URL_SUGGEST}?key=${gameKey}`, "POST", guess)
     .then( (response) => {
-      onSuggestion();
+      call(process.env.REACT_APP_URL_CLUES)
+      .then( (result) => {
+        console.log(result);
+        let data = {
+          room: result[guess.room - 1].title,
+          weapon: result[guess.weapon - 1].title,
+          suspect: result[guess.suspect - 1].title,
+          num_correct: response.num_correct,
+          incorrect: result[response.incorrect - 1].title
+        }
+        onSuggestion(data);
+      })
     })
   }
 
