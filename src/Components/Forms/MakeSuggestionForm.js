@@ -13,7 +13,8 @@ import { BaseForm } from "./BaseForm";
 export const MakeSuggestionForm = ({ gameKey, selectedRoom }) => {
   const { settings } = useSettings();
 
-  function HandleSubmit(event){
+   function HandleSubmit(event){
+    event.preventDefault();
     console.log(event);
   }
 
