@@ -12,6 +12,7 @@ export const MakeSuggestionForm = ({ gameKey, selectedRoom }) => {
 
   return (
     <div>
+        {console.log(selectedRoom)}
       <h2>Maak een suggestie</h2>
       <p>Maak een formulier om een suggestie te maken.</p>
     </div>
