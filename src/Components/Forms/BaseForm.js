@@ -1,4 +1,28 @@
+import React, {useEffect, useState} from "react";
+import {call} from "../../Helpers/api";
+
 export const BaseForm = () => {
+    const [rooms, setRooms] = useState([]);
+    const [weapons, setWeapons] = useState([]);
+    const [suspects, setSuspects] = useState([]);
+
+    useEffect(() => {
+        call(process.env.REACT_APP_URL_CLUES)
+            .then(response => {
+                return setRooms(response.filter(item => item.type === "room"));
+            })
+
+        call(process.env.REACT_APP_URL_CLUES)
+        .then(response => {
+            return setWeapons(response.filter(item => item.type === "weapon"));
+        })
+
+        call(process.env.REACT_APP_URL_CLUES)
+        .then(response => {
+            return setSuspects(response.filter(item => item.type === "suspect"));
+        })
+    }, [])
+
     return (
         <form name="suggestForm" id="suggestForm">
         <select name="room" id="room">
