@@ -13,7 +13,6 @@ const CluedoStart = ({ onStart }) => {
   const { settings } = useSettings();
 
   const startGame = () => {
-    //
   };
 
   return (
