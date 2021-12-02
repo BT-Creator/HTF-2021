@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { NotebookContent } from "./NotebookContent";
 
-const Notebook = () => {
+const Notebook = (notebookUpdate) => {
   const [isShown, setShow] = useState(false);
 
   const toggleNotes = () => {
@@ -21,7 +21,7 @@ const Notebook = () => {
               style={{ cursor: "pointer" }}
             />
           </h2>
-          <NotebookContent />
+          <NotebookContent notebookUpdate={notebookUpdate} />
         </div>
       ) : (
         <button onClick={toggleNotes} className="notes-btn" value={"Notities"}>

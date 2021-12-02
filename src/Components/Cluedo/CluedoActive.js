@@ -16,6 +16,7 @@ const CluedoActive = ({ gameKey, onEndGame, onArrest }) => {
   const [log, setLog] = useState([]);
   const [room, setRoom] = useState(null);
   const [isArrest, setIsArrest] = useState(false);
+  const [notebookUpdate, setNotebookUpdate] = useState('');
 
   return (
     <div className="file full">
@@ -25,6 +26,7 @@ const CluedoActive = ({ gameKey, onEndGame, onArrest }) => {
           selectedRoom={room}
           onSuggestion={(response) => {
             setLog(response)
+            setNotebookUpdate(response.incorrect)
             setRoom(null)}}
         />
       )}
@@ -40,7 +42,7 @@ const CluedoActive = ({ gameKey, onEndGame, onArrest }) => {
         </div>
       )}
       <Log logEntries={log} />
-      <Notebook />
+      <Notebook notebookUpdate={notebookUpdate} />
     </div>
   );
 };
