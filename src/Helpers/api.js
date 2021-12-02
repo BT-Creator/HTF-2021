@@ -5,8 +5,8 @@ export async function call(endpoint, method = 'GET') {
                 headers: {
                     Authorization:"basic " + window.btoa(process.env.REACT_APP_USERNAME + ":" + process.env.REACT_APP_PASSWORD)
                 }
-            }).then(response => resolve(response))
-                .catch(response => reject(response))
+            }).then(response => resolve(response.json()))
+                .catch(response => reject(response.json()))
         }
     )
 }
